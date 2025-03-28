@@ -58,6 +58,9 @@ function setup() {
   faceMesh.detectStart(capture, gotFaces)
   
   filmCols = windowWidth/(10*filmWidth)
+
+  textFont(adultFont);
+  textSize(textS);
 }
 
 function draw() {
@@ -95,8 +98,6 @@ function childhood(x, y) {
     }
   fill(255)
   noStroke()
-  textFont(adultFont)
-  textSize(textS)
   text("childhood", capture.width/2, capture.height+25)
 }
 
@@ -143,8 +144,6 @@ function adulthood(x, y) {
   
   fill(255)
   noStroke()
-  textFont(adultFont)
-  textSize(textS)
   text("adulthood", capture.width/2, capture.height+25)
 }
 
@@ -168,16 +167,16 @@ function elderHood(x, y) {
           fill(255)
         }
         
+        push()
         fill(0)
         textFont(font)
         textSize(dia + tSize)
         text(numbers[rand], x, y)
+        pop()
       }
     }
   fill(255)
   noStroke()
-  textFont(adultFont)
-  textSize(textS)
   text("elderhood", capture.width/2, capture.height+25)
 }
 
@@ -203,7 +202,8 @@ function death(x, y) {
   }
   //ml5.js tutorial from https://www.youtube.com/watch?v=R5UZsIwPbJA&ab_channel=TheCodingTrain
   
-  for (let i = 0; i < 1000; i++) {
+  //Grain Effect
+  for (let i = 0; i < 500; i++) {
     let gx = random(capture.width)
     let gy = random(capture.height)
     let gAlpha = random(10, 100)
